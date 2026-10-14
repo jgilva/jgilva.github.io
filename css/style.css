@@ -94,7 +94,8 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
 /* About */
 .about { display: grid; grid-template-columns: minmax(240px, 360px) 1fr; gap: 3rem; align-items: center; }
 .portrait { margin: 0; border: 1px solid var(--steel); padding: 10px; background: var(--black); }
-.portrait img { display: block; width: 100%; height: auto; filter: grayscale(1) contrast(1.05); }
+.portrait img { display: block; width: 100%; height: auto; filter: grayscale(1) contrast(1.05); transition: filter .4s ease;}
+.portrait:hover img { filter: none; }
 .about-text p { max-width: 60ch; margin: 0 0 1.25rem; }
 .btn {
   display: inline-block; padding: 0.8rem 2rem; margin-top: 0.5rem;
