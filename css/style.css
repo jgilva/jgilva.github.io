@@ -197,6 +197,13 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
 .contacts span { color: var(--steel); }
 .contacts a { color: var(--white); text-decoration: none; }
 .contacts a:hover { text-decoration: underline; }
+.resume-btn {
+  display: block;
+  width: 270px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+}
 
 /* Footer */
 .footer { text-align: center; padding: 2rem 1rem; border-top: 1px solid var(--graphite); color: var(--steel); font-size: 0.85rem; }
