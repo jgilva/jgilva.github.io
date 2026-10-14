@@ -30,7 +30,7 @@
     </div>
   </nav>
 
-  <header class="banner">
+  <header id="home" class="banner">
     <h1 class="banner-name">Jann Jervin Gil</h1>
     <p class="banner-tag">Technical and Automation Virtual Assistant</p>
     <!-- <p class="banner-tag">Precision. Discipline. Results.</p> -->
@@ -160,6 +160,17 @@
         toggle.setAttribute('aria-expanded', 'false');
       });
     });
+  </script>
+
+  <script>
+    const nav = document.querySelector('.nav');
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y > 60) nav.classList.add('scrolled');
+      else if (y < 20) nav.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   </script>
 
 </body>
