@@ -123,7 +123,8 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
 .skill img {
   display: block; width: 100%; max-width: 210px; height: auto;
   aspect-ratio: 170 / 157; object-fit: cover;
-  border: 1px solid var(--white); border-radius: 22px;
+  border: 1px solid var(--white); 
+  border-radius: 2px;
   margin-bottom: 1.25rem;
   filter: grayscale(1) contrast(1.05); transition: filter .4s ease;
 }
