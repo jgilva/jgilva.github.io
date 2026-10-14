@@ -125,7 +125,9 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
   aspect-ratio: 170 / 157; object-fit: cover;
   border: 1px solid var(--white); border-radius: 22px;
   margin-bottom: 1.25rem;
+  filter: grayscale(1) contrast(1.05); transition: filter .4s ease;
 }
+.skill:hover img { filter: none; }
 .skill p { margin: 0; color: var(--steel); font-size: 0.9rem; max-width: 32ch; }
 
 
