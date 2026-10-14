@@ -201,6 +201,54 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
 .footer { text-align: center; padding: 2rem 1rem; border-top: 1px solid var(--graphite); color: var(--steel); font-size: 0.85rem; }
 .footer p { margin: 0; }
 
+/* Shrink nav on scroll (desktop only) */
+@media (min-width: 761px) {
+  html { scroll-padding-top: 56px; }
+
+  /* Reserve the full nav height so the banner doesn't jump */
+  body { padding-top: 131px; }
+
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 131px;
+    padding: 0;
+    transition: height .45s cubic-bezier(.4, 0, .2, 1);
+  }
+
+  .nav-links {
+    position: absolute;
+    left: 0; right: 0;
+    top: 91px;
+    z-index: 1;
+    transition: top .45s cubic-bezier(.4, 0, .2, 1);
+  }
+
+  .nav #logo {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    width: 60px;
+    margin: 0;
+    z-index: 2;
+    transform: translateX(-50%);
+    transition: top .45s cubic-bezier(.4, 0, .2, 1),
+                left .45s cubic-bezier(.4, 0, .2, 1),
+                width .45s cubic-bezier(.4, 0, .2, 1),
+                transform .45s cubic-bezier(.4, 0, .2, 1);
+  }
+
+  /* Scrolled state */
+  .nav.scrolled { height: 56px; }
+  .nav.scrolled .nav-links { top: 16px; }
+  .nav.scrolled #logo {
+    top: 8px;
+    left: 32px;
+    width: 40px;
+    transform: translateX(0);
+  }
+}
+
 @media (max-width: 760px) {
   .about { grid-template-columns: 1fr; }
   .portrait { max-width: 340px; margin-inline: auto; }
