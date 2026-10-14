@@ -61,6 +61,7 @@ a { color: inherit; }
   margin: 0 auto;
   margin-bottom: 15px;
 } 
+.logo-small { display: none; }
 
 /* Hamburger button (hidden on desktop) */
 .nav-toggle {
@@ -224,6 +225,7 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
     transition: top .45s cubic-bezier(.4, 0, .2, 1);
   }
 
+  /* Big centered logo: shrinks in place and fades out */
   .nav #logo {
     position: absolute;
     top: 16px;
@@ -231,22 +233,42 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
     width: 60px;
     margin: 0;
     z-index: 2;
-    transform: translateX(-50%);
-    transition: top .45s cubic-bezier(.4, 0, .2, 1),
-                left .45s cubic-bezier(.4, 0, .2, 1),
-                width .45s cubic-bezier(.4, 0, .2, 1),
-                transform .45s cubic-bezier(.4, 0, .2, 1);
+    transform: translateX(-50%) scale(1);
+    transform-origin: center top;
+    transition: transform .45s cubic-bezier(.4, 0, .2, 1),
+                opacity .3s ease;
+  }
+  .nav.scrolled #logo {
+    transform: translateX(-50%) scale(.4);
+    opacity: 0;
+    pointer-events: none;
   }
 
-  /* Scrolled state */
-  .nav.scrolled { height: 56px; }
-  .nav.scrolled .nav-links { top: 16px; }
-  .nav.scrolled #logo {
+  /* Small left logo: fades in and grows slightly */
+  .nav .logo-small {
+    display: block;
+    position: absolute;
     top: 8px;
     left: 32px;
     width: 40px;
-    transform: translateX(0);
+    z-index: 2;
+    border: 1px solid var(--steel);
+    opacity: 0;
+    transform: scale(.6);
+    transform-origin: left center;
+    pointer-events: none;
+    transition: transform .45s cubic-bezier(.4, 0, .2, 1),
+                opacity .35s ease .1s;
   }
+  .nav.scrolled .logo-small {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+
+  /* Scrolled state: shrink the bar and slide the links up */
+  .nav.scrolled { height: 56px; }
+  .nav.scrolled .nav-links { top: 16px; }
 }
 
 @media (max-width: 760px) {
