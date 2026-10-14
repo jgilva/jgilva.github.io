@@ -177,7 +177,8 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
   transition: border-color .2s, filter .2s;
   filter: grayscale(1);
 }
-.work:hover .work-img { border-color: var(--white); }
+.work:hover .work-img { border-color: var(--white); filter: none;}
+.work-img img { width: 100%; display: block;}
 
 /* Contacts */
 .contacts { list-style: none; margin: 0; padding: 0; max-width: 560px; }
