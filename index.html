@@ -8,16 +8,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">  
 </head>
 <body>
 
   <nav class="nav" aria-label="Main">
-    <a href="#about">About Me</a>
-    <a href="#services">Service Offered</a>
-    <a href="#skills">Skills and Tools</a>
-    <a href="#work">Work Samples</a>
-    <a href="#contact">Contacts</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="#about">About Me</a>
+      <a href="#services">Service Offered</a>
+      <a href="#skills">Skills and Tools</a>
+      <a href="#work">Work Samples</a>
+      <a href="#contact">Contacts</a>
+    </div>
   </nav>
 
   <header class="banner">
@@ -140,6 +147,26 @@
   <footer class="footer">
     <p>&copy; 2026 Jann Jervin Gil. All rights reserved.</p>
   </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
+    });
+
+    // Close the menu after tapping a link
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 
 </body>
 </html>
