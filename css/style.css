@@ -112,7 +112,10 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
   padding: 2rem; background: var(--black);
   border: 1px solid var(--graphite);
   border-left: 3px solid var(--steel);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
+.card:hover { background: var(--graphite); border: 1px solid var(--graphite); border-left: 3px solid var(--graphite); }
+.card:hover p{ margin: 0; color: var(--smoke); }
 .card p, .work p { margin: 0; color: var(--steel); }
 
 /* Skills */
