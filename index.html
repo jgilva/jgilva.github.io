@@ -162,15 +162,19 @@
     });
   </script>
 
+
   <script>
     const nav = document.querySelector('.nav');
-    const onScroll = () => {
-      const y = window.scrollY;
-      if (y > 60) nav.classList.add('scrolled');
-      else if (y < 20) nav.classList.remove('scrolled');
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    const banner = document.querySelector('#home');
+
+    // Nav height when full size (matches the 131px in your CSS)
+    const NAV_FULL = 131;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => nav.classList.toggle('scrolled', !entry.isIntersecting),
+      { rootMargin: `-${NAV_FULL}px 0px 0px 0px`, threshold: 0 }
+    );
+    observer.observe(banner);
   </script>
 
 </body>
