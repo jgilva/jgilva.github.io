@@ -181,13 +181,52 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
 .contacts span { color: var(--steel); }
 .contacts a { color: var(--white); text-decoration: none; }
 .contacts a:hover { text-decoration: underline; }
+.resume-wrap {
+  position: relative;
+  width: 160px;
+  margin: 50px auto 0;
+}
 #contact .resume-btn {
   display: block;
-  width: 270px;
+  width: 100%;
   text-align: center;
-  margin: 0 auto;
-  margin-top: 50px;
+  margin: 0;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
 }
+.resume-btn::after {
+  content: "";
+  display: inline-block;
+  margin-left: 0.6rem;
+  width: 0.45em; height: 0.45em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-0.15em) rotate(45deg);
+  transition: transform .2s;
+}
+.resume-btn[aria-expanded="true"]::after { transform: translateY(0.05em) rotate(-135deg); }
+.resume-menu {
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  z-index: 5;
+  background: var(--black);
+  border: 1px solid var(--white);
+  border-top: 0;
+}
+.resume-menu[hidden] { display: none; }
+.resume-menu a {
+  display: block;
+  padding: 0.8rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 500;
+  transition: background .2s, color .2s;
+}
+.resume-menu a + a { border-top: 1px solid var(--graphite); }
+.resume-menu a:hover, .resume-menu a:focus-visible { background: var(--white); color: var(--black); outline-offset: -2px; }
+
 #contact .contact-tag {
   text-align: center;
   font-style: italic;
