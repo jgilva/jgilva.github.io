@@ -184,9 +184,10 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
 .resume-wrap {
   position: relative;
   width: 160px;
-  margin: 50px auto 0;
+  margin-top: 50px;
+  margin-left: 0;
 }
-#contact .resume-btn {
+.resume-btn {
   display: block;
   width: 100%;
   text-align: center;
