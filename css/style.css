@@ -202,6 +202,23 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
 .footer { text-align: center; padding: 2rem 1rem; border-top: 1px solid var(--graphite); color: var(--steel); font-size: 0.85rem; }
 .footer p { margin: 0; }
 
+/* quote */
+.quote {
+  margin-top: 4rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--smoke);
+  text-align: center;
+  margin-bottom: -18px;
+}
+.quote-author {
+  font-style: normal;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
 /* Shrink nav on scroll (desktop only) */
 @media (min-width: 761px) {
   html { scroll-padding-top: 56px; }
