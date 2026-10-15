@@ -177,13 +177,31 @@
         Download Resume (PDF)
       </a>
 
-      <p class="contact-tag">"Manners maketh man. <b>Let's get down to business</b>."</p>
+      <!-- <p class="contact-tag">"Manners maketh man. <b>Let's get down to business</b>."</p> -->
+      <p class="quote">
+        <span id="quote-text">Lorem Ipsum</span>
+        <span class="quote-author">&mdash; Confucius</span>
+      </p>
     </section>
   </main>
 
   <footer class="footer">
     <p>&copy; 2026 Jann Jervin Gil. All rights reserved.</p>
   </footer>
+
+  <script>
+    const confuciusQuotes = [
+      "Real knowledge is to know the extent of one's ignorance.",
+      "To learn and then practice what is learned time and again is surely a pleasure.",
+      "When you see a worthy person, think of becoming like them.",
+      "He who learns but does not think is lost; he who thinks but does not learn is in great danger.",
+      "Do not impose on others what you yourself do not desire.",
+    ];
+
+    const quoteEl = document.getElementById('quote-text');
+    const randomQuote = confuciusQuotes[Math.floor(Math.random() * confuciusQuotes.length)];
+    quoteEl.textContent = `"${randomQuote}"`;
+  </script>
 
   <script>
     const colorTargets = document.querySelectorAll('.portrait, .skill, .work');
