@@ -138,8 +138,9 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
 /* About */
 .about { display: grid; grid-template-columns: minmax(240px, 360px) 1fr; gap: 3rem; align-items: center; }
 .portrait { margin: 0; border: 1px solid var(--steel); padding: 10px; background: var(--black); }
-.portrait img { display: block; width: 100%; height: auto; filter: grayscale(1) contrast(1.05); transition: filter .4s ease;}
-.portrait:hover img { filter: none; }
+.portrait img { display: block; width: 100%; height: auto; filter: grayscale(1) contrast(1.05); transition: filter 5s ease;}
+.portrait.in-view img { filter: none; }
+/* .portrait:hover img { filter: none; } */
 .about-text p { max-width: 60ch; margin: 0 0 1.25rem; }
 .btn {
   display: inline-block; padding: 0.8rem 2rem; margin-top: 0.5rem;
@@ -149,6 +150,7 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
   transition: background .2s, color .2s;
 }
 .btn:hover { background: transparent; color: var(--white); }
+/*#about:hover img { filter: none; }*/
 
 /* Cards */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
@@ -170,9 +172,10 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
   border: 1px solid var(--white); 
   border-radius: 2px;
   margin-bottom: 1.25rem;
-  filter: grayscale(1) contrast(1.05); transition: filter .4s ease;
+  filter: grayscale(1) contrast(1.05); transition: filter 5s ease;
 }
-.skill:hover img { filter: none; }
+.skill.in-view img { filter: none; }
+/*.skill:hover img { filter: none; }*/
 .skill p { margin: 0; color: var(--steel); font-size: 0.9rem; max-width: 32ch; }
 
 
@@ -182,10 +185,11 @@ h3 { margin: 0 0 0.5rem; color: var(--white); font-weight: 600; font-size: 1.15r
   aspect-ratio: 4 / 3; margin-bottom: 1rem;
   border: 1px solid var(--graphite);
   background: repeating-linear-gradient(90deg, var(--black) 0 18px, #333 18px 19px);
-  transition: border-color .2s, filter .2s;
+  transition: border-color .2s, filter 5s ease;
   filter: grayscale(1);
 }
 .work-img img { width: 100%; display: block;}
+.work.in-view .work-img { filter: none; }
 .work:hover .work-img { border-color: var(--white); filter: none;}
 
 /* Contacts */
