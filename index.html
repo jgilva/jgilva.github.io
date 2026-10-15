@@ -173,9 +173,15 @@
         <li><span>Facebook</span><a href="https://facebook.com/va.jjgg" target="_blank">facebook.com/va.jjgg</a></li>
       </ul>
 
-      <a class="btn resume-btn" href="files/Jann_Jervin_Gil_resume.pdf" download="Jann_Jervin_Gil_Resume.pdf" type="application/pdf" target="_blank">
-        Download Resume (PDF)
-      </a>
+      <div class="resume-wrap">
+        <button type="button" class="btn resume-btn" id="resume-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="resume-menu">
+          Resume
+        </button>
+        <div class="resume-menu" id="resume-menu" role="menu" hidden>
+          <a role="menuitem" href="files/Jann_Jervin_Gil_resume.pdf" target="_blank" rel="noopener">View</a>
+          <a role="menuitem" href="files/Jann_Jervin_Gil_resume.pdf" download="Jann_Jervin_Gil_Resume.pdf">Download</a>
+        </div>
+      </div>
 
       <!-- <p class="contact-tag">"Manners maketh man. <b>Let's get down to business</b>."</p> -->
       <p class="quote">
@@ -248,6 +254,28 @@
       { rootMargin: `-${NAV_FULL}px 0px 0px 0px`, threshold: 0 }
     );
     observer.observe(banner);
+  </script>
+
+  <script>
+    const resumeToggle = document.getElementById('resume-toggle');
+    const resumeMenu = document.getElementById('resume-menu');
+
+    function setResumeMenu(open) {
+      resumeMenu.hidden = !open;
+      resumeToggle.setAttribute('aria-expanded', open);
+    }
+
+    resumeToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setResumeMenu(resumeMenu.hidden);
+    });
+    resumeMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setResumeMenu(false)));
+    document.addEventListener('click', (e) => {
+      if (!resumeMenu.contains(e.target)) setResumeMenu(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !resumeMenu.hidden) { setResumeMenu(false); resumeToggle.focus(); }
+    });
   </script>
 
 </body>
